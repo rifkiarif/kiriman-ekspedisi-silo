@@ -246,6 +246,7 @@
             margin-top: 30px;
             text-align: center;
             color: #7f8c8d;
+             /* color: #ff0000; */
             font-size: 0.9rem;
         }
         
@@ -399,19 +400,18 @@
     <div class="container">
         <header>
             <div class="admin-panel">
-                <button class="admin-btn" id="adminToggle"><i class="fas fa-cog"></i> Setting</button>
+                <button class="admin-btn" id="adminToggle"><i class="fas fa-cog"></i></button>
             </div>
-                <img src="logoi.png" alt="" width="50px">
+                <img src="logoi.png" alt="" width="70px">
             <h2></i>LIST KIRIMAN EKSPEDISI SUB RAYON SILO (BULANAN)</h2>
             <p>Jadwal Ekspedisi Bertepatan : <br>
 🗓️  18 Mei, 15 Juni, 20 Juli, 17 Ags, 14 Sept, 19 Okt, 16 Nov, 14 Des - 2025</p>
-<p>Anda Bisa Cek data yang masuk melalui <a href="https://docs.google.com/spreadsheets/d/1-pSUOQFwT2YlDJPNr1MmgOt2RRVmCYwzVtzdAUmWbCk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="schedule-status status-active" >Data Masuk</a></p>
+<p><a href="https://docs.google.com/spreadsheets/d/1-pSUOQFwT2YlDJPNr1MmgOt2RRVmCYwzVtzdAUmWbCk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="schedule-status status-active" ><i class="fas fa-eye"></i> Lihat Data</a></p>
         </header>
 
         <div class="schedule-info">
             <h3>
-                <!-- <i class="fas fa-calendar-alt"></i>  -->
-                 🗓️ 
+                <i class="fas fa-bell"></i> 
                 Status : 
                 <span id="scheduleStatus" class="schedule-status status-active">AKTIF</span>
             </h3>
@@ -486,7 +486,8 @@
         </div>
         
         <div class="form-footer">
-            <p>Pastikan semua data yang dimasukkan sudah benar sebelum mengirim | Anda bisa cek data yang masuk melalui tombol Data Masuk</p>
+            <p>Pastikan semua data yang dimasukkan sudah benar sebelum mengirim | Anda bisa melihat data yang masuk melalui tombol Lihat Data</p>
+            <b>&copy; <span id="year"></span> by Iksass Sub Silo</b>
         </div>
     </div>
     
@@ -956,7 +957,7 @@
                 const result = await response.json();
                 
                 if (result.result === 'success') {
-                    showNotification('Data berhasil dikirim!, Silahkan cek pada tombol "Data Masuk"', 'success');
+                    showNotification('Data berhasil dikirim!, Silahkan cek pada tombol "Lihat Data"', 'success');
                     form.reset();
                     alamatCounter.textContent = '0';
                     whatsappCounter.textContent = '0';
@@ -991,6 +992,8 @@
         
         // Inisialisasi aplikasi
         loadScheduleSettings();
+
+        document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 </body>
 </html>
