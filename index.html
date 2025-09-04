@@ -405,9 +405,9 @@
             <h2></i>LIST KIRIMAN EKSPEDISI SUB RAYON SILO (BULANAN)</h2>
             <p>Jadwal Ekspedisi Bertepatan : <br>
 🗓️  18 Mei, 15 Juni, 20 Juli, 17 Ags, 14 Sept, 19 Okt, 16 Nov, 14 Des - 2025</p>
-<p>Anda Bisa Cek data yang masuk melalui <a href="https://docs.google.com/spreadsheets/d/1-pSUOQFwT2YlDJPNr1MmgOt2RRVmCYwzVtzdAUmWbCk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="schedule-status status-active">Data Masuk</a></p>
+<p>Anda Bisa Cek data yang masuk melalui <a href="https://docs.google.com/spreadsheets/d/1-pSUOQFwT2YlDJPNr1MmgOt2RRVmCYwzVtzdAUmWbCk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="schedule-status status-active" >Data Masuk</a></p>
         </header>
-        
+
         <div class="schedule-info">
             <h3>
                 <!-- <i class="fas fa-calendar-alt"></i>  -->
@@ -438,13 +438,13 @@
                 
                 <div class="form-group required">
                     <label for="namaSantri">Nama Santri</label>
-                    <input type="text" id="namaSantri" name="namaSantri" placeholder="Masukkan nama lengkap santri">
+                    <input type="text" id="namaSantri" name="namaSantri" placeholder="Nama lengkap santri">
                     <div class="error-message" id="namaSantriError">Nama santri harus diisi</div>
                 </div>
                 
                 <div class="form-group required">
                     <label for="asrama">Asrama</label>
-                    <input type="text" id="asrama" name="asrama" placeholder="Masukkan nama asrama">
+                    <input type="text" id="asrama" name="asrama" placeholder="Nama asrama">
                     <div class="error-message" id="asramaError">Asrama harus diisi</div>
                 </div>
                 
@@ -468,17 +468,17 @@
                 
                 <div class="form-group required">
                     <label for="alamat">Alamat</label>
-                    <input type="text" id="alamat" name="alamat" maxlength="20" placeholder="Masukkan alamat (maks. 20 karakter)">
+                    <input type="text" id="alamat" name="alamat" maxlength="20" placeholder="Alamat (maks. 20 karakter)">
                     <div class="char-count"><span id="alamatCounter">0</span>/20 karakter</div>
                     <div class="error-message" id="alamatError">Alamat harus diisi (minimal 5 karakter)</div>
                 </div>
                 
                 <div class="form-group required">
                     <label for="whatsapp">No WhatsApp</label>
-                    <input type="number" id="whatsapp" name="whatsapp" maxlength="12" placeholder="Masukkan nomor WhatsApp (maks. 12 digit)">
+                    <input type="number" id="whatsapp" name="whatsapp" maxlength="12" placeholder="Nomor WhatsApp (maks. 12 digit)">
                     <div class="char-count"><span id="whatsappCounter">0</span>/12 digit</div>
                     <div class="error-message" id="whatsappError">Nomor WhatsApp harus diisi (10-12 digit)</div>
-                    <div class="hint">Contoh: 628123456789</div>
+                    <div class="hint">Contoh: 08123456789</div>
                 </div>
                 
                 <button type="submit" class="btn" id="submitBtn"><i class="fas fa-paper-plane"></i> Kirim Data</button>
@@ -486,7 +486,7 @@
         </div>
         
         <div class="form-footer">
-            <p>Pastikan semua data yang dimasukkan sudah benar sebelum mengirim</p>
+            <p>Pastikan semua data yang dimasukkan sudah benar sebelum mengirim | Anda bisa cek data yang masuk melalui tombol Data Masuk</p>
         </div>
     </div>
     
@@ -642,10 +642,10 @@
                 scheduleStatus.textContent = "DITUTUP";
                 scheduleStatus.className = "schedule-status status-inactive";
                 scheduleTime.textContent = new Date(endTime).toLocaleString('id-ID');
-                scheduleMessage.innerHTML = `<strong>Form sudah ditutup sejak:</strong> ${new Date(endTime).toLocaleString('id-ID')}`;
+                scheduleMessage.innerHTML = `<strong>Form sudah ditutup pada:</strong> ${new Date(endTime).toLocaleString('id-ID')}`;
                 formContainer.classList.add('form-disabled');
                 submitBtn.disabled = true;
-                countdown.textContent = "Waktu pengisian form telah berakhir";
+                countdown.textContent = "Waktu pengisian form telah berakhir, akan aktif kembali 1 minggu sebelum tanggal ekpedisi";
                 
                 if (scheduleSettings.customMessage) {
                     scheduleMessage.innerHTML += `<br><em>${scheduleSettings.customMessage}</em>`;
@@ -928,7 +928,7 @@
             // Jika ada yang tidak valid, berhenti
             if (!isJenisSantriValid || !isNamaValid || !isAsramaValid || !isBarangValid || 
                 !isAlamatValid || !isWhatsappValid || (barangSelect.value === 'Lainnya' && !isLainnyaValid)) {
-                showNotification('Harap perbaiki field yang masih error', 'error');
+                showNotification('Harap perbaiki field yang masih kosong', 'error');
                 return;
             }
             
